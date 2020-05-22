@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 
@@ -12,6 +13,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
+server.use(cookieParser());
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
